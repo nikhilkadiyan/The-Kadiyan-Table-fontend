@@ -4,7 +4,7 @@ import axios from "axios";
 export const StoreContext = createContext(null);
 
 const StoreContextProvider = (props) => {
-  const url = "https://the-kadiyan-table-backend.vercel.app";
+  const url = "https://the-kadiyan-table-backend.onrender.com";
   const [food_list, setFoodList] = useState([]);
   const [cartItems, setCartItems] = useState({});
   const [token, setToken] = useState("");
