@@ -30,6 +30,11 @@ const PlaceOrder = () => {
     setData((data) => ({ ...data, [name]: value }));
   };
 
+  const handleBackButton = (event) => {
+    event.preventDefault();
+    alert("Please complete your payment or cancel the payment process.");
+  };
+
   const placeOrder = async (e) => {
     e.preventDefault();
     let orderItems = [];
@@ -77,9 +82,14 @@ const PlaceOrder = () => {
               url + "/api/order/cancelpayment",
               { orderId: order.id }
             );
+            window.removeEventListener("popstate", handleBackButton);
           },
         },
       };
+
+      // Add the event listener when the Razorpay modal is opened
+      window.addEventListener("popstate", handleBackButton);
+
       const razor = new window.Razorpay(options);
       razor.open();
     } else {
