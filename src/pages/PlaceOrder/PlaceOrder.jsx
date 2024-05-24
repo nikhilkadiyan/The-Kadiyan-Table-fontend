@@ -59,7 +59,7 @@ const PlaceOrder = () => {
         description: "Test Transaction",
         image: assets.logo,
         order_id: order.id,
-        callback_url: "http://localhost:4000/api/order/verify",
+        callback_url: `${url}/api/order/verify`,
         prefill: {
           name: data.firstName + " " + data.lastName,
           email: data.email,
